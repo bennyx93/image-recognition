@@ -1,0 +1,27 @@
+version: "3.7"
+services:
+  web:
+    container_name: api
+    build: .
+    restart: always
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongodb
+    environment:
+      - ENV_FILE_LOCATION=./.env
+      - "TZ=America/Chicago"
+    volumes:
+      - .:/code
+    command: ["python", "app.py"]
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - 27018:27018
+    volumes:
+      - db-data:/data/db
+
+volumes:
+  db-data:

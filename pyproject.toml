@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "image-recognition"
+version = "0.1.0"
+description = ""
+authors = ["Benny Chan <bennyx1993@gmail.edu>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+Flask = "^2.0.2"
+flask-mongoengine = "^1.0.0"
+Pillow = "^9.0.0"
+requests = "^2.27.1"
+Flask-SQLAlchemy = "^2.5.1"
+
+[tool.poetry.dev-dependencies]
+black = "^21.12b0"
+coverage = "^6.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

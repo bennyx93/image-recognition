@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Python Flask - Image Recognition</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+    </head>
+    <body>
+        <h1>Welcome to Python Flask Image Recognition</h1>
+        <h2>Image</h2>
+        <h3>{{ image.name }}</h3>
+        <img src="{{ image.url }}" alt="{{ image.name }}" style="max-height:500px"/>
+        <p>Tags:</p>
+        {% for tag in image.tags %}
+            <p class="label label-info">{{tag}}</p>
+        {% endfor %}
+    </body>
+</html>
