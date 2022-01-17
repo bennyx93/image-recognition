@@ -34,7 +34,7 @@ class TestImageGet(BaseCase):
         response = self.app.get("/images/{}".format(image_id))
 
         self.assertEqual(response.status_code, 200)
-        self.assertEqual("test_image", response.json[0]["name"])
+        self.assertEqual("test_image", response.json["name"])
 
     def test_image_objects(self):
         data = {
@@ -55,7 +55,7 @@ class TestImageGet(BaseCase):
         data = {
             # "name": "test_image",
             "name": "",
-            "image-url": "https://media.istockphoto.com/photos/sea-otter-british-columbia-picture-id507171882?b=1&k=20&m=507171882&s=170667a&w=0&h=j6RDmP-Gz0M9xG1JYPy8QMlXjdPCzOjFV_vi0GjvCyU=",
+            "image-url": "https://images.unsplash.com/photo-1583812365991-05f45d8a765e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8b3R0ZXJ8ZW58MHx8MHx8&w=1000&q=80",
             "object-detection": "on",
         }
         data = {key: str(value) for key, value in data.items()}

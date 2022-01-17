@@ -11,6 +11,7 @@ flask-mongoengine = "^1.0.0"
 Pillow = "^9.0.0"
 requests = "^2.27.1"
 Flask-SQLAlchemy = "^2.5.1"
+Flask-Cors = "^3.0.10"
 
 [tool.poetry.dev-dependencies]
 black = "^21.12b0"

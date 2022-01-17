@@ -25,9 +25,11 @@ from resources.utils import (
 )
 from resources.imagga_api import ImaggaAPI
 from werkzeug.utils import secure_filename
+from flask_cors import CORS
 
 app = Flask(__name__)
 app.config.from_envvar("ENV_FILE_LOCATION")
+CORS(app)
 
 initialize_db(app)
 
@@ -152,7 +154,9 @@ def get_image(image_id):
         return Response("Image not found", status=404)
 
     try:
-        return Response(json.dumps(all_images), mimetype="application/json", status=200)
+        return Response(
+            json.dumps(all_images[0]), mimetype="application/json", status=200
+        )
         # return render_template("image.html", image=all_images[0])
     except AttributeError:
         return Response("Image not found", status=404)
