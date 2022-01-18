@@ -9,7 +9,7 @@ services:
     depends_on:
       - mongodb
     environment:
-      - ENV_FILE_LOCATION=./.env
+      - ENV_FILE_LOCATION=./.env.test
       - "TZ=America/Chicago"
     volumes:
       - .:/code

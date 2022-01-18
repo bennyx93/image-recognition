@@ -54,7 +54,7 @@ This will create a virtual environment and install all the dependencies.
 poetry shell
 ```
 
-This will open a shell within the virtual environment. Then, you need to export the enviroment variables by running `export ENV_FILE_LOCATION=./.env.test`.
+This will open a shell within the virtual environment. Then, you need to export the enviroment variables by running `export ENV_FILE_LOCATION=./.env.test.local`.
 
 Finally, you can run the tests by running the following command
 
