@@ -1,11 +1,9 @@
 from flask import (
     Blueprint,
     request,
-    render_template,
     send_file,
-    url_for,
-    redirect,
     Response,
+    current_app,
 )
 from database.models import Image, Tag
 from werkzeug.utils import send_file
@@ -69,7 +67,8 @@ def index():
         tags_list = []
         if request.form.get("object-detection"):
             imagga = ImaggaAPI(
-                app.config["IMAGGA_API_KEY"], app.config["IMAGGA_API_SECRET"]
+                current_app.config["IMAGGA_API_KEY"],
+                current_app.config["IMAGGA_API_SECRET"],
             )
             response = imagga.get_tags(image_file)
             tags = response["result"]["tags"]
@@ -118,14 +117,6 @@ def index():
 
     return Response(json.dumps(all_images), mimetype="application/json", status=200)
 
-    # return render_template(
-    #     "images.html",
-    #     images=all_images,
-    #     query=request.args.get("objects").strip('"')
-    #     if request.args.get("objects")
-    #     else "",
-    # )
-
 
 # Get image file from the database to be displayed
 @images.route("/file/<image_id>", methods=["GET"])
@@ -148,7 +139,8 @@ def get_image(image_id):
         return Response("Image not found", status=404)
 
     try:
-        return Response(json.dumps(all_images), mimetype="application/json", status=200)
-        # return render_template("image.html", image=all_images[0])
+        return Response(
+            json.dumps(all_images[0]), mimetype="application/json", status=200
+        )
     except AttributeError:
         return Response("Image not found", status=404)

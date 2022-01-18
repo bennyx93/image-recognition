@@ -1,4 +1,3 @@
-import re
 from database.models import Tag
 import requests
 from flask import url_for
@@ -52,7 +51,7 @@ def prettify_data(data):
                 "id": str(image.id),
                 "name": image.name,
                 "tags": [tag.name for tag in image.tags],
-                "url": url_for("file", image_id=image.id, _external=True),
+                "url": url_for("images.file", image_id=image.id, _external=True),
             }
         )
     return all_images
